@@ -1,4 +1,6 @@
 class Bookmark < ApplicationRecord
-  belongs_to :movies
-  belongs_to :lists
+  belongs_to :movie
+  belongs_to :list
+  validates_uniqueness_of :movie, scope: :list
+  validates :comment, length: { minimum: 5 }
 end
